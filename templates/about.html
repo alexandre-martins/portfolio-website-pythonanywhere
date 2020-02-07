@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="about">
+    <div class="container-wrapper">
+        <div class="about-wrapper">
+            <div class="profile">
+                <div class="profile-pic">
+                    <img src="{% static 'images/profile/profile_resized.jpg' %}" alt="">
+                </div>
+                <div class="profile-name">Alexandre Martins</div>
+                <div class="profile-content"><i class="fas fa-map-marker-alt"></i> Belo Horizonte, Brazil</div>
+            </div>
+            <div class="about-content">
+                <div class="text">
+                    <p>Hello! I'am a brazilian chemical engineer diving into the data science world.
+                       As an engineering student, I was shocked to discover how little the power of data analysis is been
+                       used at an industry context. Therefore, I decided to study the data analytics field and discovered myself as 
+                       data scientist maybe more than a chemical engineer! My main interests whitin data science are statistical analysis and machine learning.
+                       Also, I enjoy using python to develop applications as well.
+                    </p>
+                </div>
+                <div class="download-btn">
+                    <a href="{% static 'files/alexandre-cv.pdf' %}" download>
+                        Download CV   <i class="fas fa-arrow-circle-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my-history">
+        <h3>MY HISTORY</h3>
+        <div class="my-history-bar"></div>
+    </div>
+
+    <div class="timeline-wrapper">
+        <div class="timeline">
+            <ul>
+                <li>
+                    <div class="content">
+                        <h3>Federal University of Minas Gerais</h3>
+                        <p>Started my bachelor's degree in chemical engineering. Here I had a solid mathematical foundation,
+                            with calculus, differential equations and linear algebra (very useful to understand machine learning 
+                            concepts deeply!). Also, lot's of chemistry and reactor design subjects helped me to expand my mind to complex concepts.
+                            I finnished my degree on December, 2019.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>August 2013</h4>
+                    </div>
+                </li>
+                <li>
+                    <div class="content">
+                        <h3>Syracuse University, NY</h3>
+                        <p>During my undergrad years, I went to an exchange program and studied in Syracuse for about 10
+                            months. I took courses on chemical engineering and it was a very great opportunity to live abroad,
+                            practice the english language and get to know a different culture. After that time, I went to Chicago to do 
+                            an internship for more three months.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>July 2015</h4>
+                    </div>
+                </li>
+                <li>
+                    <div class="content">
+                        <h3>Brazilian Company of Mining and Metalurgy (CBMM)</h3>
+                        <p>Back in Brazil, I did an internship at a mining and metalurgy company. CBMM is the world's leading supplier of niobium products and technology.
+                            As a summer intern, I was responsible for collecting and analyze data from one of the lab equipments, conducting statistical
+                            tests for process validation.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>August 2017</h4>
+                    </div>
+                </li>
+                <li>
+                    <div class="content">
+                        <h3>Saraiva Educação</h3>
+                        <p>As a data analyst intern, I worked with the data science team in solving all kinds of businness problems.
+                            Through lots of SQL queries, dashboards design, data wrangling, statistical modeling, training and validation of machine learning models,
+                            I learned a lot of the data science job in practice. Also, I took part on some development projects and got experience 
+                            working with Agile methods, CI/CD and cloud environments.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <h4>November 2018</h4>
+                    </div>
+                </li>
+                <div style="clear: both;"></div>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            ScrollOut({
+                targets: 'h3, h4, p, .content'
+            })
+        </script>
+    </div>
+
+    <div class="skills-and-tech">
+        <h3>SKILLS & TECHNOLOGIES</h3>
+        <div class="skills-bar"></div>
+        <p>Here are some of the technologies that I use in my daily work and I'am comfortable working with</p>
+    </div>
+
+    <div class="tech-wrapper">
+        <div class="tech-section">
+            <div class="section-title">
+                Data Analysis Tools
+            </div>
+            <div class="section-wrapper">
+                <div class="section-tech"><img src="{% static 'images/tech/python_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/numpy_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/pandas_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/scipy_logo.jpg' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/jupyter_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/matplotlib_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/seaborn_logo.jpg' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/plotly_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/sklearn_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/keras_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/tensorflow_logo.png' %}" alt=""></div>
+            </div>
+        </div>
+        <div class="tech-section">
+            <div class="section-title">
+                SQL & Databases
+            </div>
+            <div class="section-wrapper">
+                <div class="section-tech"><img src="{% static 'images/tech/mysql_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/postgres_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/sqlite_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/bigquery_logo.png' %}" alt=""></div>
+            </div>
+        </div>
+        <div class="tech-section">
+            <div class="section-title">
+                Data Visualization & BI
+            </div>
+            <div class="section-wrapper">
+                <div class="section-tech"><img src="{% static 'images/tech/metabase_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/powerbi_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/tableau_logo.jpg' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/qlik_logo.png' %}" alt=""></div>
+            </div>
+        </div>
+        <div class="tech-section">
+            <div class="section-title">
+                Web Development
+            </div>
+            <div class="section-wrapper">
+                <div class="section-tech"><img src="{% static 'images/tech/html_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/css_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/js_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/django_logo.png' %}" alt=""></div>
+                <div class="section-tech"><img src="{% static 'images/tech/flask_logo.png' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+{% endblock content %}

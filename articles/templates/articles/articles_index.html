@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-posts">
+
+    <div class="main-content">
+        <h1 class="all-my-projects">
+            {% if 'machine+learning' in request.get_full_path %}
+            Machine Learning Projects
+            {% elif 'dataset+analysis' in request.get_full_path %}
+            Dataset Analysis Projects
+            {% elif 'python+tips' in request.get_full_path %}
+            Python Programming Tips
+            {% else %}
+            All My Projects
+            {% endif %}
+        </h1>
+
+        <div class="project-description-wrapper">
+            {% for obj in queryset %}
+            <div class="project-description">
+    
+                <div class="image-place">
+                    <img src="{{ obj.thumbnail.url }}" alt="">
+                </div>
+                
+                <div class="post-description">
+                    <div class="post-title">
+                        <h3><a href="post/{{ obj.id }}">{{ obj.title }}</a></h3>
+                    </div>
+        
+                    <div class="post-info">
+                        <span><i class = "fas fa-clock"></i> {{ obj.timestamp|timesince }} ago</span> 
+                        {% for cat in obj.categories.all %} 
+                        <span><i class="fas fa-clipboard-check"></i> {{ cat }}</span> 
+                        {% endfor %}
+                    </div>
+                    <div class="postinfo-bar"></div>
+                    <div class="post-overview">
+                        <p>{{ obj.overview | safe }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="sidebar">
+
+        <div class="section-search">
+            <h2 class="section-title">Search</h2> 
+            <div class="search-field">
+                <form action="." method="GET">
+                    <input type="text" name="search-post" class="text-input" placeholder="What are you looking for?">
+                    <button type="submit"><i class = "fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section-categories">
+            <h2 class="section-categories-h2">Categories</h2>
+            <form action="." method="GET">
+                <ul>
+                    <li><button name="cat-search" type="submit" value="machine learning">Machine Learning</button>
+                    <li><button name="cat-search" type="submit" value="dataset analysis">Dataset analysis</button>
+                    <li><button name="cat-search" type="submit" value="python tips">Python tips</button>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if queryset.paginator.num_pages > 1 %}
+<div class="pagination">
+    <ul>
+        {% if queryset.has_previous %}
+        {% if 'cat-search' in request.get_full_path  or 'search-post' in request.get_full_path %}
+        <li><a href="{{ request.get_full_path }}&page= {{ queryset.previous_page_number }}" class="prev"><i class="fas fa-angle-left"></i></a></li>
+        {% else %}
+        <li><a href="?page= {{ queryset.previous_page_number }}" class="prev"><i class="fas fa-angle-left"></i></a></li>
+        {% endif %}
+        {% endif %}
+        {% for i in queryset.paginator.page_range %}
+            {% if queryset.number == i %}
+            {% if 'cat-search' in request.get_full_path  or 'search-post' in request.get_full_path %}
+            <li class="page-number active"><a href="{{ request.get_full_path }}&page={{ i }}">{{ i }}</a></li>
+            {% else %}
+            <li class="page-number active"><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% else %}
+            {% if 'cat-search' in request.get_full_path  or 'search-post' in request.get_full_path %}
+            <li class="page-number"><a href="{{ request.get_full_path }}&page={{ i }}">{{ i }}</a></li>
+            {% else %}
+            <li class="page-number"><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if queryset.has_next %}
+        {% if 'cat-search' in request.get_full_path  or 'search-post' in request.get_full_path %}
+        <li><a href="{{ request.get_full_path }}&page= {{ queryset.next_page_number }}" class="prev"><i class="fas fa-angle-right"></i></a></li>
+        {% else %}
+        <li><a href="?page= {{ queryset.next_page_number }}" class="prev"><i class="fas fa-angle-right"></i></a></li>
+        {% endif %}
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+{% include "head.html" %}
+    <body>
+        <header>
+            <nav>
+                <ul class="menu">
+                    <li class="logo"><a href="{% url 'index' %}">Alexandre Martins <br> <span class="data-science">Data Science Portfolio</span></a></li>
+                    <li class="item"><a href="{% url 'articles:projects' %}">Projects</a></li>
+                    <li class="item"><a href="{% url 'about' %}">About Me</a></li>
+                    <li class="item"><a href="{% url 'contact' %}">Contact</a></li>
+                    <li class="toggle"><span class = "bars"></span></li>
+                </ul>
+            </nav>
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-section-about">
+                    <h1 class="logo">Alexandre Martins</h1>
+                    <h3>Data Science Portfolio</h3>
+                    <p>I'am a student of data science and machine learning, and this is my brief portfolio!
+                        Also, in my free time, I enjoy studying web development. I hope you liked the content here, and
+                        feel free to contact me if you like.
+                    </p>
+                    <div class="btn-div">
+                        <a href="/contact">
+                            <div class="contact-btn">
+                                SEND ME A MESSAGE
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-links">
+                    <div class="contact-title">
+                        <h1>Contacts</h1>
+                    </div>
+                    <div class="icons">
+                        <li><span><i class="fas fa-map-marker-alt"></i> &nbsp;  Belo Horizonte, Brazil</span></li>
+                        <li><span><i class="fas fa-phone"></i> &nbsp; +55 (31) 97544-9770</span></li>
+                        <li><span><i class="fas fa-envelope"></i> &nbsp; aleexmagno@gmail.com</span></li>
+                        <li><span><i class="fab fa-github"></i> &nbsp; <a href="http://www.github.com/alexandre-martins" target="_blank">alexandre-martins</a></span></li>
+                        <li><span><i class="fab fa-linkedin"></i> &nbsp; <a href="https://www.linkedin.com/in/alexandre-magno-lima-martins-a4936a160/" target="_blank">alexandre-magno-lima-martins</a></span></li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; Designed by Alexandre Martins | 2019
+            </div>
+        </div>
+    </body>
+</html>

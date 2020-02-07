@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %}
+
+<div class="front-image">
+    <canvas data-processing-sources="{% static 'js/animation.pde' %}" alt="Author: Matt Jakob (https://www.openprocessing.org/sketch/385778)"></canvas>
+    <div class="front-text">
+        <h1>Welcome to my <br>personal portfolio</h1>
+        <h2>Here you will find some of my data science work</h2>
+        <h2>Enjoy!</h2>
+    </div>
+</div>
+
+<div class="projects">
+    <h2>LATESTS PROJECTS</h2>
+    <div class="header-bar"></div>
+</div>
+
+<section class="post-list">
+    <div class="content">
+        {% for obj in latests %}
+        <article class="post">
+            <div class="post-header">
+                <div class="post-image">
+                    <img src="{{ obj.thumbnail.url }}" alt="">
+                </div>
+            </div>
+            <h3>{{ obj.title }}</h3>
+            <div class="info">
+                <div class="timestamp">{{ obj.timestamp|date:"M d, Y"}}</div>
+                {% for cat in obj.categories.all %}
+                <div class="category">{{ cat }}</div>
+                {% endfor %}
+            </div>
+            <div class="post-bar"></div>
+            <div class="post-body">
+                {{ obj.overview | safe }}
+            </div>
+            <div class="read-btn">
+                <a href="articles/post/{{ obj.id }}">Read More</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="projects-category">
+    <h2>BY CATEGORY</h2>
+    <div class="header-bar"></div>
+</div>
+
+<div class="boxes">
+    <div class="box box-1"><a href="/articles/?cat-search=machine+learning">
+            <h1>Machine Learning</h1>
+        </a> <br>
+        <a href="/articles/?cat-search=machine+learning">
+            <img src="{% static 'images/robot.png' %}" alt="">
+        </a>
+    </div>
+    <div class="box box-2"><a href="/articles/?cat-search=dataset+analysis">
+            <h1>Dataset Analysis</h1>
+        </a> <br>
+        <a href="/articles/?cat-search=dataset+analysis">
+            <img src="{% static 'images/analysis.png' %}" alt="">
+        </a>
+    </div>
+    <div class="box box-3"><a href="/articles/?cat-search=python+tips">
+            <h1>Python Tips</h1>
+        </a> <br>
+        <a href="/articles/?cat-search=python+tips">
+            <img src="{% static 'images/python.png' %}" alt="">
+        </a>
+    </div>
+</div>
+
+{% endblock content %}
