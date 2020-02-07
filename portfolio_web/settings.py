@@ -13,7 +13,7 @@ SECRET_KEY = 'n%-a$2h&x18dmo2*^+%bb*i2m^t(dk$kr15!6#cv8(mec!6x5@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['alexandremartins.pythonanywhere.com/']
+ALLOWED_HOSTS = ['alexandremartins.pythonanywhere.com']
 
 
 # Application definition
@@ -45,7 +45,7 @@ CKEDITOR_CONFIGS = {
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ["Image", "Table", "Link", "Unlink", "Anchor", "SectionLink"],
             ["Subscript", "Superscript"],
-            ['Undo', 'Redo'], 
+            ['Undo', 'Redo'],
             ['CodeSnippet'],
             ['Blockquote'],
             ['EqnEditor'],
@@ -153,6 +153,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/alexandremartins/portfolio-website-pythonanywhere/media'
 
 MEDIA_URL = '/media/'
