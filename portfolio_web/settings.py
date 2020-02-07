@@ -11,9 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n%-a$2h&x18dmo2*^+%bb*i2m^t(dk$kr15!6#cv8(mec!6x5@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alexandremartins.pythonanywhere.com/']
 
 
 # Application definition
@@ -82,7 +82,7 @@ ROOT_URLCONF = 'portfolio_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['portfolio-website-pythonanywhere/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,6 +146,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/alexandremartins/portfolio-website-pythonanywhere/static'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
